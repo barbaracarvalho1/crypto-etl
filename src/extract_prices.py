@@ -10,7 +10,7 @@ load_dotenv()
 URL = os.getenv("COINGECKO_API_URL")
 COINS = os.getenv("COINS")
 CURRENCIES = os.getenv("CURRENCIES")
-OUTPUT_FILE = os.getenv("OUTPUT_FILE", f"crypto_events_{date.today().strftime("%Y-%m-%d")}.json")
+OUTPUT_FILE = os.getenv("OUTPUT_FILE", f"crypto_events_{date.today().strftime('%Y-%m-%d')}.json")
 
 PARAMS = {
     "ids": COINS,
