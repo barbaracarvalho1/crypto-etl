@@ -25,20 +25,21 @@ def save_event(event, filename=OUTPUT_FILE):
     except Exception as e:
         print(f"Error saving event: {e}")
 
-while True:
-    try:
-        response = requests.get(URL, params=PARAMS)
-        data = response.json()
+def extract_prices_into_json():
+    while True:
+        try:
+            response = requests.get(URL, params=PARAMS)
+            data = response.json()
 
-        event = {
-            "timestamp": datetime.utcnow().isoformat(),
-            "data": data
-        }
+            event = {
+                "timestamp": datetime.utcnow().isoformat(),
+                "data": data
+            }
 
-        save_event(event)
-        print(f"Saved event at {event['timestamp']}")
+            save_event(event)
+            print(f"Saved event at {event['timestamp']}")
 
-    except Exception as e:
-        print(f"Error fetching data: {e}")
+        except Exception as e:
+            print(f"Error fetching data: {e}")
 
-    time.sleep(30)
+        time.sleep(30)
